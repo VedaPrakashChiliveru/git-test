@@ -1,0 +1,103 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Assignment-3</title>
+        <style>
+            #myform
+            {
+                border: 1px solid;
+                width:50%;
+                margin: 10px auto;
+                padding: 10px 20px;
+                background-color: #e6ffff;
+            }
+            .inputBox{
+                /* border: 1px solid; */
+                padding: 6px;
+               margin:2px auto;
+            }
+            #name{
+                width: 60%;
+            }
+            .butn-style{
+                /* border: 1px solid; */
+                align-items: center;
+                display: flex;
+                padding: 10px;
+                justify-content: space-evenly;
+            }
+            .button
+            {
+                width:50%;
+                margin: 0px 5px;
+                /* border: 1px solid; */
+                padding: 3px;
+            }
+            #container
+            {
+                border: 1px solid;
+                width: 53%;
+                margin: auto;
+                background-color: #ffad99;
+            }
+            .item
+            {
+                display: flex;
+                width: 70%;
+                justify-content: space-between;
+            }
+            </style>
+    <body>
+        <h1 align="center">TO-DO Application</h1><br><br>
+        <div id="myform" >
+            <div class="inputBox">
+            Enter Item Name:
+            <input type="text" id="name" placeholder="Enter new Item.." onkeypress="if(event.keyCode==13) AddButton()">
+        </div>
+            <br><br>
+            <div class="butn-style">
+            <input type="button" class="button" value="ADD" name="button" onClick="AddButton()">
+            <input type="button" class="button" onclick="myFunction()" id="button1" value="RESET">
+            </div>
+
+        </div>
+        <div id="container">
+            <h2 align="center">To-Do List</h2>
+        </div>
+        <script> 
+            let form = document.getElementById('myform').addEventListener('button', AddButton);
+            function AddButton()
+            {
+                let veda = document.getElementById("name").value;
+                console.log(name);
+                if(!veda.match(/^[A-Za-z0-9]+$/))
+                {
+                    alert(`enter alphanumeric pattern..`);
+                    return;
+                }
+                else if(veda.length<3)
+                {
+                    // document.getElementById("")
+                    alert(`enter atleast 3 chars..`);
+                    return;
+                }
+                else if(veda.length>50)
+                {
+                    alert(`enter below 50 chars..`);    
+                    return;
+                }
+                document.querySelector('#container').innerHTML += 
+                `<div class="item"><br>
+                    <span id="itemname">
+                        ${document.querySelector('#name').value}
+                        </span>
+                        <button class="delete" onclick="this.parentNode.remove()">DLT</button>
+                    </div>`;               
+            };   
+            function myFunction()
+            {
+                document.getElementById("name").value="";
+            }      
+        </script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Assignment-2</title>
+        <style>
+            #form{
+            border: 3px solid greenyellow;
+            width: fit-content;
+            background-color: #f0f1f1;
+            border-radius: 15px;
+            padding: 5px;
+            }
+            .button{
+            width: 30%;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method = "GET" name = "form" id = "form" onsubmit="return validate()">
+            Enter Full Name: <input name = "text" type = "text" pattern = "[a-zA-Z]*" required>
+            <br><br>
+            Gender:
+            <input type = "radio" name = "gender" id = "male" value="male">MALE
+            <input type = "radio" name = "gender" id = "female" value="female">FEMALE 
+            <br><br>   
+            <select name = "options" id="">
+                <option value="">Select Options</option>
+                <option>5</option>	
+                <option>10</option>
+                <option>20</option>
+                </select>  
+                <br><br>       
+                
+            <input type = "button" value = "submit" onClick="validate()">
+            </form>
+        <script>
+            function validate()
+            {
+                const score = document.forms["form"]["options"].value;
+                const gender = document.forms["form"]["gender"];
+                let v = " ";
+                for(let i=0;i<gender.length;i++)
+                {
+                    if(gender[i].checked)
+                    {
+                        v = gender[i].value;
+                    }
+                    
+                }
+                let container=1;
+                if(v=="male")
+                {
+                    container = score * 2;
+                    alert(`total score is: ${container}`);
+                }
+                else if(v=="female")
+                {
+                    container = score * 3;
+                    alert(`total score is: ${container}`);
+                }
+                const Name = document.forms["form"]["text"].value;
+                sessionStorage.setItem("container", container);
+                if(Name=="veda chiliveru")
+                {
+                    window.location.replace("score.html");
+                    let p = container * 5;
+                }
+                if(Name.length<12 || Name==" ")
+                {
+                    alert("Enter atleast 12 characters..");
+                }
+                if(Name.includes(" "))
+                {
+                    const FullName = Name.split(" ");
+                    const FirstName = FullName[0];
+                    const LastName = FullName[1];
+                    alert(`FirstName: ${FirstName} || LastName: ${LastName}`);
+                }
+                else{
+                    alert("Entered details:" + FullName);
+                }
+            }
+        </script>
+    </body>
+</html>
+

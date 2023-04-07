@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head><title>Assignment-1</title>
+<style>
+    #form{
+	border: 3px solid red;
+	width: fit-content;
+	background-color: white;
+	border-radius: 15px;
+	padding: 5px;
+	}
+	.button{
+	width: 30%;
+	border-radius: 10px;
+	margin: 10px;
+	padding: 4px;
+	color: red;
+	}
+</style>
+</head>
+<body onload = "alert('page is loaded...')">
+    <p><b>onClick event to give alert message:</b></p>
+    <input type = "button" onClick = "alert('Assignment-1')" value = "Click Me!"><br>
+	<hr>
+	<p><b>onmouseover, onmouseount events for changing bg color:</b></p>
+	<br><a onmouseover = "document.bgColor = 'green'" onmouseout = "document.bgColor = 'white'">Green Hover</a><br>
+	<br><a onmouseover = "document.bgColor = 'red'" onmouseout = "document.bgColor = 'white'">Red Hover</a><br>
+	<br><a onmouseover = "document.bgColor = 'grey'" onmouseout = "document.bgColor = 'white'">Grey Hover</a><br>
+	<hr>
+	<p><b>onChange event to give alert message:</b></p>
+	Type here:<input type = "text" name = "text" value = "assignment-1" onChange = "change(this.value)">
+	<script> 
+	    function change(ans)
+		{
+		    alert("The changed text is:" + ans);
+		}
+	</script>
+	<hr>
+	<p><b>Form:</b></p>
+	<form method = "GET" id = "form">
+	Enter name: <input id = "text" type = "text" name = "inputfield" pattern = "[a-zA-Z]*" maxlength = "20" required>
+	<br><br>
+    Gender:
+    <input type = "radio" name = "Male" id = "male">MALE
+    <input type = "radio" name = "Female" id = "female">FEMALE 
+    <br><br>
+    Nationality:
+    <select name = "options" id="">
+    <option>Select below</option>
+    <option>Indian</option>	
+	<option>Europian</option>
+	<option>American</option>
+	</select>
+	<br><br>
+	<input type = "checkbox" name = "policy" required>
+	I agree to the terms and conditions
+	<br>
+	<button class = "button" type = "submit">SUBMIT</button>
+	</form>
+</body>
+</html>
